@@ -10,4 +10,7 @@
 
 @interface TWPhotoCollectionViewCell : UICollectionViewCell
 
+
+@property (strong,nonatomic) UIImageView *imageView;
+
 @end

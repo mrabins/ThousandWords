@@ -7,6 +7,8 @@
 //
 
 #import "TWPhotoCollectionViewCell.h"
+#define IMAGE_BORDER_LENGTH 5
+
 
 @implementation TWPhotoCollectionViewCell
 
@@ -15,9 +17,26 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        [self setup];
     }
     return self;
 }
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    
+    if(self){
+        [self setup];
+    }
+    return self;
+}
+
+-(void)setup
+{
+    self.imageView = [[UIImageView alloc] initWithFrame:CGRectInset(self.bounds, IMAGE_BORDER_LENGTH, IMAGE_BORDER_LENGTH)];
+    [self.contentView addSubview:self.imageView];
+}
+
 
 /*
 // Only override drawRect: if you perform custom drawing.
